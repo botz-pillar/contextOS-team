@@ -2,7 +2,17 @@
 
 > Shared team knowledge base for InfoSec teams using [InfoSec Personal OS](https://github.com/botz-pillar/infosec-personal-os).
 
-This repo contains the team-wide knowledge that every team member references through their personal OS. It's included as a git submodule in each person's setup.
+## Why This Exists
+
+Every InfoSec team has hard-won knowledge scattered across wikis, Slack threads, shared drives, and people's heads. When someone needs to write a SIEM query, triage a CVE, or prep for an audit, they either reinvent the wheel or hunt down the person who's done it before.
+
+This repo is your team's **single source of truth for AI-assisted security work.** It gives every team member access to the same compliance framework references, tool documentation, vetted prompt templates, security guardrails, and step-by-step workflows — loaded directly into Claude Code as context.
+
+When a senior analyst builds a great threat hunting prompt, it goes here. When compliance frameworks update, it gets updated once — and the whole team has it. When a new analyst joins, they get the team's collective expertise on day one.
+
+---
+
+This repo is included as a git submodule in each team member's [InfoSec Personal OS](https://github.com/botz-pillar/infosec-personal-os) setup.
 
 ---
 
