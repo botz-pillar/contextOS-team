@@ -1,4 +1,4 @@
-# Contributing to InfoSec Shared Context
+# Contributing to ContextOS — Team
 
 > Guidelines for proposing changes to the team's shared knowledge base.
 
@@ -42,8 +42,8 @@ Before submitting anything, ask: *"Would at least two other people on the team u
 ### Step 1: Clone the repo (if you haven't already)
 
 ```bash
-git clone https://github.com/YOUR-ORG/infosec-shared-context.git
-cd infosec-shared-context
+git clone https://github.com/YOUR-ORG/contextOS-team.git
+cd contextOS-team
 ```
 
 ### Step 2: Create a branch

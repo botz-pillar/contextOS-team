@@ -1,6 +1,6 @@
-# InfoSec Shared Context
+# ContextOS — Team
 
-> Shared team knowledge base for InfoSec teams using [InfoSec Personal OS](https://github.com/botz-pillar/infosec-personal-os).
+> Shared team knowledge base for InfoSec teams using [ContextOS](https://github.com/botz-pillar/contextOS-personal).
 
 ## Why This Exists
 
@@ -12,7 +12,7 @@ When a senior analyst builds a great threat hunting prompt, it goes here. When c
 
 ---
 
-This repo is included as a git submodule in each team member's [InfoSec Personal OS](https://github.com/botz-pillar/infosec-personal-os) setup.
+This repo is included as a git submodule in each team member's [ContextOS](https://github.com/botz-pillar/contextOS-personal) setup.
 
 ---
 
@@ -40,7 +40,7 @@ This repo is included as a git submodule in each team member's [InfoSec Personal
 
 ## How It Gets Used
 
-Team members don't clone this repo directly. It's included as a **git submodule** inside each person's [InfoSec Personal OS](https://github.com/botz-pillar/infosec-personal-os):
+Team members don't clone this repo directly. It's included as a **git submodule** inside each person's [ContextOS](https://github.com/botz-pillar/contextOS-personal):
 
 ```
 ~/infosec-os/
@@ -70,7 +70,7 @@ git submodule update --remote
 
 1. Clone this repo directly:
    ```bash
-   git clone https://github.com/botz-pillar/infosec-shared-context.git
+   git clone https://github.com/botz-pillar/contextOS-team.git
    ```
 
 2. Create a branch and make changes:
