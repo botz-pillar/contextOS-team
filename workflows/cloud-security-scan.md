@@ -170,3 +170,5 @@ Ask Claude to help you:
 | Ignoring informational findings | Low-severity findings can chain into high-risk issues |
 | Not re-scanning after fixes | Always verify with a follow-up scan |
 | Scan fatigue | Focus on delta from last scan, not full results every time |
+
+*Last verified: 2026-04-09*
