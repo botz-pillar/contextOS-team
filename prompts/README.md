@@ -1,6 +1,7 @@
 # Prompt Libraries
 
-> Role-specific, battle-tested prompts for InfoSec work with Claude Code.
+> Role-specific, battle-tested prompts for your team's work with Claude Code.
+> **Template note:** Pre-filled with InfoSec role prompts (SOC analyst, cloud engineer, compliance, etc.) as examples. Replace with prompt libraries for your team's roles.
 
 ---
 

@@ -1,6 +1,7 @@
 # Approved Prompt Library
 
-> Vetted prompts for common InfoSec tasks. Copy, customize, and use with Claude Code.
+> Vetted prompts for common team tasks. Copy, customize, and use with Claude Code.
+> **Template note:** Pre-filled with InfoSec prompts as examples. Replace with prompts relevant to your team's domain.
 
 ---
 

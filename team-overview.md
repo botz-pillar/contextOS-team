@@ -1,6 +1,7 @@
-# InfoSec Team Overview
+# Team Overview
 
 > Shared team context. Update via PR to main branch.
+> **Template note:** This is pre-filled with InfoSec team structure as an example. Replace with your own team's roles, responsibilities, and processes.
 
 ---
 

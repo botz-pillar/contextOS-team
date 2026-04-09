@@ -1,6 +1,7 @@
 # CLAUDE.md — ContextOS — Team
 
 > This file is loaded when working directly in the team context repo.
+> **Note:** This repo ships with InfoSec example content. The onboarding flow below is written for InfoSec teams, but the structure works for any domain. Non-InfoSec teams should adapt the questions to their own field.
 
 ---
 
@@ -23,9 +24,9 @@ Say something like:
 
 > Welcome to ContextOS — Team Setup! I'll help you customize the shared team knowledge base for your team.
 >
-> This is a one-time setup that the team lead does before rolling out ContextOS to the rest of the team. I'll ask about your team structure, tools, and processes, then update the shared files.
+> This repo ships with InfoSec example content to show what a completed team context looks like. I'll ask about your team and update the files to match your actual setup — whether you're in security, engineering, marketing, or any other domain.
 >
-> After this, your team members will clone contextOS-personal and get all of this context automatically via the submodule.
+> This is a one-time setup that the team lead does before rolling out ContextOS to the rest of the team. After this, your team members will clone contextOS-personal and get all of this context automatically via the submodule.
 >
 > Ready? Let's start with your team.
 

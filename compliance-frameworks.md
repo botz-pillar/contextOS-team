@@ -1,6 +1,7 @@
-# Compliance Frameworks Reference
+# Frameworks & Standards Reference
 
-> Quick reference for frameworks the team works with. Not a replacement for official documentation — use this for orientation and Claude Code context.
+> Quick reference for frameworks and standards the team works with. Not a replacement for official documentation — use this for orientation and Claude Code context.
+> **Template note:** Pre-filled with InfoSec compliance frameworks (FedRAMP, CMMC, NIST, etc.) as an example. Replace with your team's relevant standards, regulations, or quality frameworks — or delete this file if not applicable.
 
 ---
 

@@ -1,6 +1,7 @@
 # Tool Integrations
 
-> How to connect Claude Code to your security tools — what works natively today and how to work with everything else.
+> How to connect Claude Code to your team's tools — what works natively today and how to work with everything else.
+> **Template note:** Pre-filled with security tool integrations (AWS, SIEM, EDR, Terraform, etc.) as examples. Replace with integration guides for your team's actual tools.
 
 ---
 

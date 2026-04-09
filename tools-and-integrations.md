@@ -1,6 +1,7 @@
 # Tools & Integrations
 
 > Team tool inventory with integration notes. Update via PR when tools change.
+> **Template note:** Pre-filled with InfoSec tools as an example. Replace with your team's actual tool stack.
 
 ---
 

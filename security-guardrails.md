@@ -1,6 +1,7 @@
-# Security Guardrails
+# AI Guardrails
 
-> Rules and constraints for using Claude Code in InfoSec work. These protect you, the team, and the organization.
+> Rules and constraints for using Claude Code in your team's work. These protect you, the team, and the organization.
+> **Template note:** The rules below are written for InfoSec teams but the categories (credentials, production safety, data handling, AI trust, review practices) apply to any domain. Customize the specifics for your field.
 
 ---
 
