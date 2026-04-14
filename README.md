@@ -1,6 +1,10 @@
-# ContextOS — Team
+# ContextOS Team
 
-> Shared team knowledge base template for [ContextOS](https://github.com/botz-pillar/contextOS-personal). This version is pre-built for InfoSec teams — fork it and customize the content for your own team and domain.
+> Shared team knowledge base template. Designed to be forked and customized for your team's domain. Consumed by team members via git submodule inside their personal [ContextOS Personal](https://github.com/botz-pillar/contextOS-personal).
+
+**Last Updated:** 2026-04-14
+
+---
 
 ## Why This Exists
 
@@ -8,142 +12,124 @@ Every team has hard-won knowledge scattered across wikis, Slack threads, shared 
 
 This repo is your team's **single source of truth for AI-assisted work.** It gives every team member access to the same reference docs, tool documentation, vetted prompt templates, guardrails, and step-by-step workflows — loaded directly into Claude Code as context.
 
-When a senior team member builds a great prompt, it goes here. When processes change, it gets updated once — and the whole team has it. When a new hire joins, they get the team's collective expertise on day one.
+When a senior team member builds a great prompt, it goes here. When processes change, it gets updated once — and the whole team has it. New hires get the team's collective expertise on day one.
 
 ---
 
-> **This is an InfoSec example.** The content in this repo (compliance frameworks, security tools, SOC workflows, etc.) is pre-built for an Information Security team. It serves as a working example of what a fully fleshed-out team context looks like. **Fork it, gut the InfoSec content, and replace it with your own domain knowledge** — the structure works for any team: engineering, marketing, legal, operations, finance, or anything else. See [Customizing for Your Team](#customizing-for-your-team) below.
+## Design: Domain-Neutral Core, Domain Examples
+
+- **Core files at the root** (`team-overview.md`, `tools-and-integrations.md`, `guardrails.md`, `CLAUDE.md`, `CONTRIBUTING.md`) are **domain-neutral template shells**. They ship with `{{PLACEHOLDER}}` strings that the team lead fills during setup.
+- **Full reference examples** live in `examples/` (currently `examples/infosec/` — a complete InfoSec team context: prompts, workflows, integrations, compliance frameworks, security guardrails).
+- **Your team's customized content** replaces placeholders in the core files and can expand into `workflows/`, `prompts/`, `integrations/` as needed.
+
+This way you get a blank slate that respects the pattern, with a fully-filled example to learn from.
 
 ---
 
-This repo is included as a git submodule in each team member's [ContextOS](https://github.com/botz-pillar/contextOS-personal) setup.
+## How Your Team Uses It
+
+Team members don't clone this repo directly. It's included as a **git submodule** inside each person's [ContextOS Personal](https://github.com/botz-pillar/contextOS-personal):
+
+```
+~/context-os/
+├── CLAUDE.md              ← Personal router (auto-loaded by Claude Code)
+├── my-context.md          ← Personal details
+└── shared-context/        ← THIS REPO (git submodule)
+    ├── team-overview.md
+    ├── tools-and-integrations.md
+    ├── guardrails.md
+    └── workflows/...
+```
+
+Claude Code reads `shared-context/` like any local file. No special config needed.
+
+---
+
+## Setup (Team Lead)
+
+1. **Fork this repo** to your organization.
+2. **Clone your fork:**
+   ```bash
+   git clone https://github.com/YOUR-ORG/contextOS-team.git
+   cd contextOS-team
+   ```
+3. **Run Claude Code:**
+   ```bash
+   claude
+   ```
+   A SessionStart hook detects the uncustomized state (placeholders in core files) and triggers [skills/team-setup.md](skills/team-setup.md). Claude walks you through an 8-step flow covering team structure, tools, standards, SLAs, guardrails, and prompt priorities (~15 min).
+4. **Review, commit, push:**
+   ```bash
+   git diff
+   git add -A && git commit -m "Customize team context for [Your Team]"
+   git push origin main
+   ```
+5. **Enable branch protection** — see [CONTRIBUTING.md](CONTRIBUTING.md).
+6. **Point `contextOS-personal` at your fork.** In your team's version of `contextOS-personal`, update `.gitmodules`:
+   ```
+   [submodule "shared-context"]
+       path = shared-context
+       url = https://github.com/YOUR-ORG/contextOS-team.git
+   ```
+
+Your team members get your customized content automatically.
 
 ---
 
 ## What's In Here
 
-The structure below works for any team. The content is pre-filled for InfoSec as an example — replace it with your domain.
-
 ### Core Files (every team needs these)
 
-| File | Purpose | InfoSec Example Content |
-|------|---------|------------------------|
-| `team-overview.md` | Team structure, responsibilities, escalation paths, SLAs | Security team roles, SOC escalation tiers |
-| `tools-and-integrations.md` | Tool inventory, integration guides | SIEM, EDR, scanners, cloud security tools |
-| `approved-prompts.md` | Vetted prompt templates for common tasks | 20+ security-specific prompts |
-| `security-guardrails.md` | Rules and constraints for safe AI usage | InfoSec-specific AI safety rules |
-| `CONTRIBUTING.md` | How team members propose changes | PR process, review requirements |
+| File | Purpose |
+|------|---------|
+| `CLAUDE.md` | Auto-loaded by Claude when working in this repo; routes maintenance tasks |
+| `team-overview.md` | Team structure, roster, escalation, SLAs, cadence |
+| `tools-and-integrations.md` | Tool inventory and integration docs |
+| `guardrails.md` | AI usage rules (data classification, restricted actions, approvals) |
+| `CONTRIBUTING.md` | How team members propose changes (PR process, review matrix) |
+| `skills/team-setup.md` | Onboarding flow for team leads |
 
-### Domain-Specific Files (customize or replace)
+### Your Team Will Add
 
-| File | InfoSec Example | Your Team Equivalent |
-|------|----------------|---------------------|
-| `compliance-frameworks.md` | FedRAMP, CMMC, NIST 800-53, SOC 2 | Your industry standards, regulations, or quality frameworks |
-| `integrations/` | AWS CLI, SIEM, EDR, Terraform, vuln scanners | Your team's tools and how Claude can help with them |
-| `prompts/` | SOC analyst, cloud engineer, compliance, IR, GRC prompts | Role-specific prompts for your team's functions |
-| `workflows/` | Cloud scanning, vuln triage, compliance reporting, SOC triage, risk assessment | Step-by-step procedures for your team's recurring tasks |
+As the team grows the knowledge base, expect to create:
 
----
+- `workflows/` — step-by-step procedures for recurring tasks
+- `prompts/` — vetted prompt templates, typically role-specific
+- `integrations/` — how Claude connects to specific tools your team uses
+- `standards.md` — industry frameworks, coding standards, brand guidelines, etc.
 
-## How It Gets Used
+### Reference: `examples/infosec/`
 
-Team members don't clone this repo directly. It's included as a **git submodule** inside each person's [ContextOS](https://github.com/botz-pillar/contextOS-personal):
+A complete InfoSec team context: 20+ approved prompts, 5 workflows, 7 integration guides, compliance frameworks (FedRAMP, CMMC, NIST, SOC 2), role-specific prompts for SOC analysts, cloud engineers, compliance managers, incident responders, risk/GRC analysts.
 
-```
-~/infosec-os/
-├── CLAUDE.md              ← Personal context (auto-loaded by Claude Code)
-├── my-context.md          ← Personal details
-└── shared-context/        ← THIS REPO (git submodule)
-    ├── team-overview.md
-    ├── compliance-frameworks.md
-    └── workflows/
-        └── ...
-```
-
-Claude Code reads `shared-context/` files like any local file. No special config needed.
+Use it as a reference when building your team's own. Copy files directly if they fit your domain.
 
 ---
 
-## Updating Shared Context
-
-### As a team member (pull updates)
+## Team Member Updates
 
 ```bash
-cd ~/infosec-os
+# Pull latest team knowledge (one command)
+cd ~/context-os
 git submodule update --remote
 ```
 
-### As a contributor (add or change content)
-
-1. Clone this repo directly:
-   ```bash
-   git clone https://github.com/botz-pillar/contextOS-team.git
-   ```
-
-2. Create a branch and make changes:
-   ```bash
-   git checkout -b add-kubernetes-workflow
-   ```
-
-3. Open a PR for team review
-
-4. After merge, team members pull with `git submodule update --remote`
+When someone PRs an update, every team member gets it with that one command.
 
 ---
 
-## Customizing for Your Team
+## Suggested Domains
 
-If your team isn't InfoSec, here's how to make this yours:
+This structure fits any team. Possible forks:
 
-### Step 1: Fork this repo
-
-```bash
-# Fork on GitHub, then clone your fork
-git clone https://github.com/YOUR-ORG/contextOS-team.git
-cd contextOS-team
-```
-
-### Step 2: Keep the structure, replace the content
-
-The file structure is domain-neutral — it works for any team. Replace the InfoSec content with your own:
-
-| What to Do | How |
-|-----------|-----|
-| **team-overview.md** | Replace InfoSec roles with your team's roles and structure |
-| **tools-and-integrations.md** | Replace security tools with your team's tools |
-| **approved-prompts.md** | Replace security prompts with prompts for your domain |
-| **security-guardrails.md** | Rename to `guardrails.md` and write AI usage rules for your domain |
-| **compliance-frameworks.md** | Replace with your industry standards, or delete if not applicable |
-| **workflows/** | Delete InfoSec workflows, add your own recurring procedures |
-| **prompts/** | Delete InfoSec prompts, add role-specific prompts for your team |
-| **integrations/** | Delete InfoSec integrations, add guides for your team's tools |
-
-### Step 3: Run the team setup
-
-```bash
-claude
-```
-
-The CLAUDE.md in this repo has a team lead onboarding flow — Claude will ask about your team structure, tools, and processes, then update the files for you.
-
-### Step 4: Point contextOS-personal to your fork
-
-In your team's copy of contextOS-personal, update `.gitmodules`:
-
-```
-[submodule "shared-context"]
-    path = shared-context
-    url = https://github.com/YOUR-ORG/contextOS-team.git
-```
-
-Your team members get your customized content automatically.
-
-### Examples of teams that could use this:
 - **Engineering** — architecture docs, coding standards, deployment workflows, on-call runbooks
-- **Marketing** — brand guidelines, campaign workflows, content review prompts, analytics references
-- **Legal** — contract review workflows, compliance checklists, clause libraries, regulatory references
-- **Finance** — reporting workflows, audit procedures, forecasting templates, regulatory frameworks
-- **Operations** — process documentation, vendor management, SOP library, incident procedures
+- **InfoSec** — security frameworks, SIEM/EDR tooling, compliance, SOC runbooks (fully built in `examples/infosec/`)
+- **Marketing** — brand guidelines, campaign workflows, content review prompts
+- **Legal** — contract review workflows, compliance checklists, clause libraries
+- **Finance** — reporting workflows, audit procedures, forecasting templates
+- **Operations** — process documentation, vendor management, SOP library
+- **Data science** — model review checklists, evaluation patterns, reproducibility guides
+- **Healthcare** — clinical workflow references, regulatory constraints, HIPAA-safe AI usage
 
 ---
 
@@ -162,12 +148,7 @@ Your team members get your customized content automatically.
 - Company-specific details that shouldn't be public
 - Unverified or speculative content
 
-### PR Guidelines
-- Verify information against authoritative sources
-- Follow existing file format and structure
-- Include enough context for someone unfamiliar with the topic
-- Tag at least one team member for review
-- See `CONTRIBUTING.md` for the full process
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full PR process.
 
 ---
 
